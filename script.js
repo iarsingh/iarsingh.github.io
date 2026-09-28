@@ -20,8 +20,7 @@
 
   const phrases = [
     "Forward Deployed Engineer aspirant · Cloud & Platform · DevSecOps · AI Infrastructure",
-    "I sit between users, software, and infrastructure.",
-    "Problem → Prototype → API → Infrastructure → Production"
+    "I sit between users, software, and infrastructure."
   ];
   const typed = document.getElementById("typedSub");
   let pi = 0, ci = 0, del = false;
