@@ -1,333 +1,268 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script>document.documentElement.classList.add('js')</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Akhilesh Ranjan Singh — Forward Deployed Engineer</title>
 <link rel="canonical" href="https://iarsingh.github.io/">
-<meta name="description" content="Cloud and Platform Engineer with 7+ years across GCP, Azure, and AWS. Building toward Forward Deployed Engineering — AI infrastructure, MLOps, and production systems that users can actually run.">
+<meta name="description" content="Cloud and Platform Engineer with 7+ years across GCP, Azure, and AWS. Building toward Forward Deployed Engineering — AI infrastructure, MLOps, and production systems.">
 <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://iarsingh.github.io/">
 <meta property="og:title" content="Akhilesh Ranjan Singh — Forward Deployed Engineer">
 <meta property="og:description" content="Problem → Prototype → API → Infrastructure → Deployment → Observability → Production">
 <meta property="og:image" content="https://iarsingh.github.io/og-card.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Akhilesh Ranjan Singh — Forward Deployed Engineer">
-<meta name="twitter:description" content="Cloud, platform, DevSecOps, and AI infrastructure — aiming for Forward Deployed Engineering.">
-<meta name="twitter:image" content="https://iarsingh.github.io/og-card.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="scroll-progress" id="scrollProgress"></div>
-<div class="bg-orb bg-orb-a" aria-hidden="true"></div>
-<div class="bg-orb bg-orb-b" aria-hidden="true"></div>
 
-<nav class="nav">
-  <a class="brand" href="#top">
-    <span class="brand-mark">AR</span>
-    <span class="brand-name">iarsingh</span>
-  </a>
-  <div class="nav-links">
-    <a href="#about">about</a>
-    <a href="#experience">experience</a>
-    <a href="#projects">projects</a>
-    <a href="#skills">skills</a>
-    <a href="#proof">proof</a>
-    <a href="#contact">contact</a>
-  </div>
-  <div class="nav-actions">
-    <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle color theme"></button>
-    <a class="icon-btn cta-nav" href="#resume">View Resume</a>
-  </div>
-</nav>
+<header class="topnav" id="top">
+  <nav class="topnav-links" aria-label="Primary">
+    <a href="#home" class="active" data-nav>⌂ Home</a>
+    <a href="#about" data-nav>☺ About Me</a>
+    <a href="#experience" data-nav>⚒ Experience</a>
+    <a href="#projects" data-nav>▣ Projects</a>
+    <a href="#certificates" data-nav>▣ Certificates</a>
+    <a href="#contact" data-nav>✈ Contact Me</a>
+  </nav>
+</header>
 
-<div class="wrap">
-
-  <section class="hero hero-split" id="top">
+<section class="hero" id="home">
+  <div class="hero-inner">
     <div class="hero-copy">
-      <p class="eyebrow">hello<span class="cursor">&nbsp;</span></p>
+      <p class="hello">Hello <span class="wave" aria-hidden="true">👋</span></p>
       <h1>I'm Akhilesh</h1>
-      <p class="role">Forward Deployed Engineer Aspirant · Cloud &amp; Platform · DevSecOps · AI Infrastructure</p>
-      <p class="hero-lede">I sit between users, software, and infrastructure — taking ambiguous problems from prototype to production.</p>
-      <div class="cta-row">
-        <a class="cta cta-topmate" href="#resume">View Resume</a>
-        <a class="cta cta-coffee" href="https://linkedin.com/in/iamarsingh" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-      <div class="social-row" aria-label="Profiles">
-        <a class="social" href="mailto:akhileshranjan.ks@gmail.com" title="Email">Email</a>
-        <a class="social" href="https://github.com/iarsingh" target="_blank" rel="noopener" title="GitHub">GitHub</a>
-        <a class="social" href="https://leetcode.com/u/imarsingh/" target="_blank" rel="noopener" title="LeetCode">LeetCode</a>
-        <a class="social" href="https://www.hackerrank.com/profile/akhileshranjan_1" target="_blank" rel="noopener" title="HackerRank">HackerRank</a>
-        <a class="social" href="https://topmate.io/iamarsingh/" target="_blank" rel="noopener" title="Topmate">Topmate</a>
-      </div>
-    </div>
-    <div class="orbit" aria-hidden="true">
-      <div class="orbit-ring r1"></div>
-      <div class="orbit-ring r2"></div>
-      <div class="orbit-core">FDE</div>
-      <span class="orbit-tag t1">K8s</span>
-      <span class="orbit-tag t2">Terraform</span>
-      <span class="orbit-tag t3">RAG</span>
-      <span class="orbit-tag t4">GCP</span>
-      <span class="orbit-tag t5">FastAPI</span>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About</h2>
-    <div class="card reveal">
-      <p>I’m a Cloud and Platform Engineer with 7+ years of experience building, automating, securing, and operating production infrastructure across GCP, Azure, and AWS.</p>
-      <p>My background spans Kubernetes, Terraform, CI/CD, DevSecOps, observability, cloud networking, and production troubleshooting. I’m currently expanding this foundation into AI engineering, MLOps, LLM applications, and AI infrastructure.</p>
-      <p>I’m particularly interested in <strong>Forward Deployed Engineering</strong> — working closely with users, understanding ambiguous technical problems, building practical solutions quickly, and taking them all the way from prototype to production.</p>
-    </div>
-    <ol class="loop reveal">
-      <li>Problem</li>
-      <li>Prototype</li>
-      <li>API</li>
-      <li>Infrastructure</li>
-      <li>Deployment</li>
-      <li>Observability</li>
-      <li>Production</li>
-    </ol>
-    <p class="muted small">The goal is not only to make systems work, but to make them deployable, secure, observable, scalable, and useful to the people using them.</p>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <p class="muted small">Customer-facing platform work first: landing zones, self-service, reliability, and shipping with users in the loop.</p>
-
-    <details class="role-card reveal" open>
-      <summary>
-        <span><span class="role-title">DevOps Engineer</span> <span class="role-company">— Capgemini, Noida</span></span>
-        <span class="role-dates">Sep 2024 – Present <span class="chevron">▸</span></span>
-      </summary>
-      <div class="role-body">
-        <ul>
-          <li>Designed and governed enterprise GCP landing zones (Shared VPC, project hierarchy, remote state, IAM, policy-as-code) so teams can provision safely without waiting on tickets.</li>
-          <li>Standardized Terraform Enterprise modules for networking, IAM, Kubernetes, monitoring, logging, load balancing, and security — cutting infrastructure provisioning effort by 70%.</li>
-          <li>Integrated Terraform with Git-based CI/CD, Harness, Jira, and ServiceNow so change management is self-service and auditable.</li>
-          <li>Ran production GKE (node pools, upgrades, autoscaling) and drove a 20% cloud-cost reduction through governance and right-sizing.</li>
-          <li>Hardened the edge with Cloud Armor (WAF, rate limits, Adaptive Protection), OpenTelemetry, and attack-surface monitoring (IONIX, Stream Security).</li>
-          <li>Stood up MLOps paths with MLflow and FastAPI; led GitHub-to-Bitbucket migration that improved engineering productivity by 30%.</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="role-card reveal">
-      <summary>
-        <span><span class="role-title">Senior Software Engineer – DevOps</span> <span class="role-company">— Tech Mahindra, Mumbai</span></span>
-        <span class="role-dates">Jul 2022 – Sep 2024 <span class="chevron">▸</span></span>
-      </summary>
-      <div class="role-body">
-        <ul>
-          <li>Owned CI/CD platform engineering with Jenkins, GitHub Actions, Terraform, Docker, Kubernetes, Helm, and Ansible.</li>
-          <li>Delivered IaC across GCP, AWS, and Azure; backup/DR with Veeam and Kasten K10; artifact lifecycle with JFrog Artifactory.</li>
-          <li>Kept Kubernetes platforms at 99.9% availability with proactive monitoring and DevSecOps controls.</li>
-          <li>Partnered with Google Cloud, Microsoft, and AWS engineering teams during cloud transformation — the same muscle FDE work needs on customer sites.</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="role-card reveal">
-      <summary>
-        <span><span class="role-title">System Engineer – Cloud &amp; DevOps</span> <span class="role-company">— TCS, Bengaluru</span></span>
-        <span class="role-dates">Sep 2019 – Jul 2022 <span class="chevron">▸</span></span>
-      </summary>
-      <div class="role-body">
-        <ul>
-          <li>Operated production Kubernetes/GKE for business-critical apps; automated pipelines with Jenkins, Cloud Build, and Terraform (40% less deployment effort).</li>
-          <li>Led incident response across teams, tied alerts to SLAs, and used Terraform + IAM governance during GCP migrations.</li>
-        </ul>
-      </div>
-    </details>
-  </section>
-
-  <section id="projects">
-    <h2>What I like building</h2>
-    <p class="muted small">Public repos that show the FDE loop: ship a useful system, then make it runnable in production.</p>
-    <div class="project-grid">
-      <a class="project-card reveal" href="https://github.com/iarsingh/kubernetes-mlops-platform" target="_blank" rel="noopener">
-        <div class="project-head"><span class="project-name">kubernetes-mlops-platform</span><span class="lang-dot lang-python"></span><span class="lang">Python</span></div>
-        <p>Model serving, artifacts, promotion, and inference autoscaling on Kubernetes — AI workload path for FDE-style delivery.</p>
-      </a>
-      <a class="project-card reveal" href="https://github.com/iarsingh/ai-mock-interviewer" target="_blank" rel="noopener">
-        <div class="project-head"><span class="project-name">ai-mock-interviewer</span><span class="lang-dot lang-js"></span><span class="lang">JavaScript</span></div>
-        <p>Voice-led interview practice for DevOps, SRE, Platform, and MLOps — a product sitting next to users, not just infra YAML.</p>
-      </a>
-      <a class="project-card reveal" href="https://github.com/iarsingh/terraform-gcp-platform" target="_blank" rel="noopener">
-        <div class="project-head"><span class="project-name">terraform-gcp-platform</span><span class="lang-dot lang-hcl"></span><span class="lang">HCL</span></div>
-        <p>Reusable GCP/GKE landing-zone patterns: namespaces, service accounts, guardrails, autoscaling.</p>
-      </a>
-      <a class="project-card reveal" href="https://github.com/iarsingh/gitops-kubernetes-deployment" target="_blank" rel="noopener">
-        <div class="project-head"><span class="project-name">gitops-kubernetes-deployment</span><span class="lang-dot lang-shell"></span><span class="lang">Shell</span></div>
-        <p>GitOps promotion with Argo CD-style workflows — how a prototype becomes a controlled production release.</p>
-      </a>
-      <a class="project-card reveal" href="https://github.com/iarsingh/github-actions-devops-templates" target="_blank" rel="noopener">
-        <div class="project-head"><span class="project-name">github-actions-devops-templates</span><span class="lang-dot lang-shell"></span><span class="lang">Shell</span></div>
-        <p>Reusable CI, scanning, container builds, GKE deploy, and rollback templates.</p>
-      </a>
-      <a class="project-card reveal" href="https://github.com/iarsingh/mlops-zoomcamp" target="_blank" rel="noopener">
-        <div class="project-head"><span class="project-name">mlops-zoomcamp</span><span class="lang-dot lang-jupyter"></span><span class="lang">Jupyter</span></div>
-        <p>Hands-on MLOps: tracking, pipelines, deployment, monitoring.</p>
-      </a>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <p class="muted small">Merged from work experience plus public profiles: <a href="https://www.hackerrank.com/profile/akhileshranjan_1" target="_blank" rel="noopener">HackerRank</a>, <a href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e" target="_blank" rel="noopener">Credly</a>, <a href="https://partner.skills.google/public_profiles/73b05fe2-54bc-4552-91e6-a41996c0d21d" target="_blank" rel="noopener">Google Skills</a>, <a href="https://learn.microsoft.com/en-in/users/akhileshranjansingh-2535/" target="_blank" rel="noopener">Microsoft Learn</a>, <a href="https://leetcode.com/u/imarsingh/" target="_blank" rel="noopener">LeetCode</a>.</p>
-    <div class="card reveal">
-      <div class="skill-group">
-        <h3>Cloud</h3>
-        <div class="chips"><span class="chip">GCP</span><span class="chip">Azure</span><span class="chip">AWS</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>Containers &amp; platforms</h3>
-        <div class="chips"><span class="chip">Kubernetes</span><span class="chip">GKE</span><span class="chip">AKS</span><span class="chip">Docker</span><span class="chip">Helm</span><span class="chip">HPA</span><span class="chip">RBAC</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>Infrastructure as Code</h3>
-        <div class="chips"><span class="chip">Terraform</span><span class="chip">Terraform Enterprise</span><span class="chip">Ansible</span><span class="chip">ARM templates</span><span class="chip">Azure Resource Manager</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>CI/CD &amp; GitOps</h3>
-        <div class="chips"><span class="chip">Jenkins</span><span class="chip">GitHub Actions</span><span class="chip">Azure DevOps</span><span class="chip">Azure Pipelines</span><span class="chip">ArgoCD</span><span class="chip">Harness</span><span class="chip">Cloud Build</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>Programming &amp; automation</h3>
-        <div class="chips"><span class="chip">Python</span><span class="chip">Bash</span><span class="chip">PowerShell</span><span class="chip">Go</span><span class="chip">Java</span><span class="chip">SQL</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>Observability</h3>
-        <div class="chips"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Dynatrace</span><span class="chip">ELK</span><span class="chip">OpenTelemetry</span><span class="chip">Azure Monitor</span><span class="chip">Log Analytics</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>Security</h3>
-        <div class="chips"><span class="chip">DevSecOps</span><span class="chip">IAM</span><span class="chip">Policy as Code</span><span class="chip">Microsoft Entra ID</span><span class="chip">Azure Policy</span><span class="chip">Cloud Armor</span><span class="chip">vulnerability scanning</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>Data stores</h3>
-        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Cloud SQL</span><span class="chip">AlloyDB</span><span class="chip">Redis</span><span class="chip">Azure Blob / Files</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>Currently building toward (AI / FDE)</h3>
-        <div class="chips"><span class="chip">AI Engineering</span><span class="chip">MLOps</span><span class="chip">LLMOps</span><span class="chip">FastAPI</span><span class="chip">model deployment</span><span class="chip">RAG</span><span class="chip">AI agents &amp; tool calling</span><span class="chip">LangGraph</span><span class="chip">MCP</span><span class="chip">AI on Kubernetes</span><span class="chip">BigQuery ML</span><span class="chip">Cloud GPUs / TPUs</span></div>
-      </div>
-      <div class="skill-group">
-        <h3>Delivery patterns (Microsoft Learn)</h3>
-        <div class="chips"><span class="chip">blue-green</span><span class="chip">canary / dark launch</span><span class="chip">A/B &amp; progressive exposure</span><span class="chip">SRE</span></div>
+      <p class="hero-sub" id="typedSub"></p>
+      <a class="btn-primary magnetic" href="#resume">View Resume</a>
+      <div class="socials">
+        <a class="soc" href="mailto:akhileshranjan.ks@gmail.com" aria-label="Email" title="Email">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+        <a class="soc" href="https://linkedin.com/in/iamarsingh" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">in</a>
+        <a class="soc" href="https://github.com/iarsingh" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.12-1.47-1.12-1.47-.92-.63.07-.62.07-.62 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.7.11 2.5.33 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        </a>
+        <a class="soc" href="https://leetcode.com/u/imarsingh/" target="_blank" rel="noopener" aria-label="LeetCode" title="LeetCode">LC</a>
+        <a class="soc" href="https://www.hackerrank.com/profile/akhileshranjan_1" target="_blank" rel="noopener" aria-label="HackerRank" title="HackerRank">HR</a>
       </div>
     </div>
-  </section>
-
-  <section id="proof">
-    <h2>Proof · public profiles</h2>
-
-    <div class="proof-grid">
-      <article class="card reveal">
-        <h3>Credly <span class="live-tag">9 credentials</span></h3>
-        <ul class="credential-list">
-          <li><span class="cred-name">Professional Cloud DevOps Engineer</span><span class="cred-meta">Google · exp Jun 2027</span></li>
-          <li><span class="cred-name">Professional Cloud Network Engineer</span><span class="cred-meta">Google · exp Dec 2027</span></li>
-          <li><span class="cred-name">Associate Cloud Engineer</span><span class="cred-meta">Google · exp Oct 2027</span></li>
-          <li><span class="cred-name">BigQuery ML skill badge</span><span class="cred-meta">Jun 2026</span></li>
-          <li><span class="cred-name">Deploy Kubernetes Apps on GCP</span><span class="cred-meta">Oct 2024</span></li>
-          <li><span class="cred-name">Containers, K8s and Istio on IBM Cloud</span><span class="cred-meta">Sep 2023</span></li>
-          <li><span class="cred-name">LFS169 Introduction to GitOps</span><span class="cred-meta">Mar 2023</span></li>
-          <li><span class="cred-name">Introduction to Cybersecurity</span><span class="cred-meta">Cisco · Feb 2024</span></li>
-          <li><span class="cred-name">Software Developer Career Guide</span><span class="cred-meta">Coursera · Apr 2025</span></li>
-        </ul>
-        <p class="muted small"><a href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e/badges/credly" target="_blank" rel="noopener">Open Credly</a></p>
-      </article>
-
-      <article class="card reveal">
-        <h3>Google Skills <span class="live-tag">Diamond · 89,118 pts</span></h3>
-        <p class="muted small">Member since 2024. Highlighted for AI infrastructure and platform work.</p>
-        <div class="chips">
-          <span class="chip">AI Infrastructure: Hypercomputer, GPUs, TPUs, storage, networking, deployment</span>
-          <span class="chip">Gen AI apps &amp; RAG</span>
-          <span class="chip">MLOps for Generative AI</span>
-          <span class="chip">GKE workloads</span>
-          <span class="chip">Terraform on GCP</span>
-          <span class="chip">SRE culture</span>
-          <span class="chip">Cloud NGFW</span>
-        </div>
-        <p class="muted small"><a href="https://partner.skills.google/public_profiles/73b05fe2-54bc-4552-91e6-a41996c0d21d" target="_blank" rel="noopener">Open Google Skills profile</a></p>
-      </article>
-
-      <article class="card reveal">
-        <h3>Microsoft Learn <span class="live-tag">Level 8 · 44 badges · 3 trophies</span></h3>
-        <p class="muted small">56,625 XP. Trophies: AZ-400 secure continuous deployment with Azure Pipelines; AZ-104 storage; AZ-104 compute (completed 8 Apr 2025).</p>
-        <div class="chips">
-          <span class="chip">Introduction to SRE</span>
-          <span class="chip">Azure Pipelines</span>
-          <span class="chip">App Service</span>
-          <span class="chip">Container Instances</span>
-          <span class="chip">Entra ID / RBAC</span>
-          <span class="chip">Azure Monitor</span>
-          <span class="chip">Load Balancer / App Gateway</span>
-          <span class="chip">Microsoft Azure Administrator course</span>
-        </div>
-        <p class="muted small"><a href="https://learn.microsoft.com/en-in/users/akhileshranjansingh-2535/" target="_blank" rel="noopener">Open Microsoft Learn</a></p>
-      </article>
-
-      <article class="card reveal">
-        <h3>HackerRank <span class="live-tag">verified skills</span></h3>
-        <div class="chips">
-          <span class="chip">Problem Solving (Basic)</span>
-          <span class="chip">Python (Basic)</span>
-          <span class="chip">Java (Basic)</span>
-          <span class="chip">Go (Basic)</span>
-          <span class="chip">SQL (Basic)</span>
-          <span class="chip">SQL (Intermediate)</span>
-          <span class="chip">SQL (Advanced)</span>
-        </div>
-        <p class="muted small"><a href="https://www.hackerrank.com/profile/akhileshranjan_1" target="_blank" rel="noopener">Open HackerRank</a></p>
-      </article>
-
-      <article class="card reveal">
-        <h3>LeetCode <span class="live-tag">DSA for FDE interviews</span></h3>
-        <p>Practice account <strong>imarsingh</strong> — used to stay sharp on problem-solving for onsite/FDE loops, not as a contest headline.</p>
-        <p class="muted small"><a href="https://leetcode.com/u/imarsingh/" target="_blank" rel="noopener">Open LeetCode</a></p>
-      </article>
-    </div>
-  </section>
-
-  <section id="resume">
-    <h2>Resume</h2>
-    <div class="resume-actions reveal">
-      <button class="cta cta-topmate" id="downloadPdf" type="button">⬇ Save as PDF</button>
-      <p class="muted small">Print dialog → Save as PDF. One-pager friendly on A4.</p>
-    </div>
-    <div class="card reveal resume-sheet">
-      <p class="resume-name">Akhilesh Ranjan Singh</p>
-      <p class="muted">Noida, India · <a href="mailto:akhileshranjan.ks@gmail.com">akhileshranjan.ks@gmail.com</a> · <a href="tel:+918002392976">+91-8002392976</a> · <a href="https://github.com/iarsingh">github.com/iarsingh</a> · <a href="https://linkedin.com/in/iamarsingh">linkedin.com/in/iamarsingh</a></p>
-      <p><strong>Forward Deployed Engineer Aspirant</strong> — Cloud &amp; Platform Engineer with 7+ years on GCP, Azure, and AWS. Kubernetes, Terraform, CI/CD, DevSecOps, observability. Expanding into AI engineering, MLOps, RAG, agents, and AI infrastructure. Target loop: Problem → Prototype → API → Infrastructure → Deployment → Observability → Production.</p>
-      <p><strong>Education:</strong> B.E. Computer Science, RGPV Bhopal, 2019.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card reveal">
-      <p>Open to Forward Deployed Engineering and AI Platform Engineering roles where hands-on delivery meets customer problem solving.</p>
-      <div class="cta-row">
-        <a class="cta cta-topmate" href="mailto:akhileshranjan.ks@gmail.com">akhileshranjan.ks@gmail.com</a>
-        <a class="cta cta-coffee" href="https://linkedin.com/in/iamarsingh" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="cta cta-coffee" href="https://topmate.io/iamarsingh/" target="_blank" rel="noopener">Topmate</a>
+    <div class="stage" id="stage" aria-hidden="true">
+      <div class="diamond"></div>
+      <div class="orbit-wrap">
+        <div class="ring ring-a"></div>
+        <div class="ring ring-b"></div>
+        <div class="planet">AR</div>
+        <span class="sat s1">K8s</span>
+        <span class="sat s2">GCP</span>
+        <span class="sat s3">TF</span>
+        <span class="sat s4">AI</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <a href="https://github.com/iarsingh/iarsingh.github.io" target="_blank" rel="noopener">Source</a> ·
-    <a href="https://buymeacoffee.com/iarsingh" target="_blank" rel="noopener">Buy me a coffee</a>
-  </footer>
+<button class="fab fab-theme" id="themeToggle" type="button" aria-label="Toggle color theme">☀</button>
+<button class="fab fab-menu" id="menuToggle" type="button" aria-label="Open menu">▦</button>
+<div class="drawer" id="drawer" hidden>
+  <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">✕</button>
+  <a href="#home">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#certificates">Certificates</a>
+  <a href="#contact">Contact Me</a>
 </div>
 
+<section class="panel" id="about">
+  <h2>About Me</h2>
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="blob">FDE</div>
+      <p class="muted">Problem → Prototype → API → Infra → Deploy → Observe → Production</p>
+    </div>
+    <div class="about-copy">
+      <h3>Hey, I'm Akhilesh</h3>
+      <p>Forward Deployed Engineer aspirant · Cloud &amp; Platform Engineer · DevSecOps · AI Infrastructure.</p>
+      <p>I’m a Cloud and Platform Engineer with 7+ years of experience building, automating, securing, and operating production infrastructure across GCP, Azure, and AWS.</p>
+      <p>My background spans Kubernetes, Terraform, CI/CD, DevSecOps, observability, cloud networking, and production troubleshooting. I’m expanding this into AI engineering, MLOps, LLM applications, and AI infrastructure.</p>
+      <p>I want FDE work: sit with users, take ambiguous problems, ship a practical solution, and carry it all the way into production.</p>
+    </div>
+  </div>
+  <div class="skill-bars">
+    <div class="bar" data-pct="92"><span>Kubernetes / GKE / AKS</span><i></i></div>
+    <div class="bar" data-pct="90"><span>Terraform / IaC</span><i></i></div>
+    <div class="bar" data-pct="88"><span>CI/CD &amp; GitOps</span><i></i></div>
+    <div class="bar" data-pct="85"><span>DevSecOps / IAM</span><i></i></div>
+    <div class="bar" data-pct="80"><span>Python / APIs</span><i></i></div>
+    <div class="bar" data-pct="72"><span>AI / MLOps / RAG</span><i></i></div>
+  </div>
+</section>
+
+<section class="panel" id="experience">
+  <h2>Experience</h2>
+  <div class="exp">
+    <div class="exp-tabs" role="tablist">
+      <button class="exp-tab active" data-tab="0" type="button">Capgemini</button>
+      <button class="exp-tab" data-tab="1" type="button">Tech Mahindra</button>
+      <button class="exp-tab" data-tab="2" type="button">TCS</button>
+    </div>
+    <article class="exp-panel active" data-panel="0">
+      <p class="when">Sep 2024 — Present</p>
+      <h3>DevOps Engineer · Capgemini, Noida</h3>
+      <ul>
+        <li>Enterprise GCP landing zones: Shared VPC, project hierarchy, remote state, IAM, policy-as-code — so teams provision without waiting on tickets.</li>
+        <li>Terraform Enterprise modules for networking, IAM, Kubernetes, monitoring, and security — 70% less provisioning effort.</li>
+        <li>Self-service delivery via Git CI/CD, Harness, Jira, and ServiceNow.</li>
+        <li>Production GKE, 20% cloud-cost reduction, Cloud Armor + OpenTelemetry, MLflow/FastAPI MLOps paths.</li>
+      </ul>
+    </article>
+    <article class="exp-panel" data-panel="1">
+      <p class="when">Jul 2022 — Sep 2024</p>
+      <h3>Senior Software Engineer – DevOps · Tech Mahindra, Mumbai</h3>
+      <ul>
+        <li>CI/CD platform engineering with Jenkins, GitHub Actions, Terraform, Docker, Kubernetes, Helm, Ansible.</li>
+        <li>IaC across GCP, AWS, Azure; 99.9% Kubernetes availability; Veeam / Kasten K10 DR; JFrog Artifactory.</li>
+        <li>Partnered with Google Cloud, Microsoft, and AWS engineering — the same customer-site muscle FDE needs.</li>
+      </ul>
+    </article>
+    <article class="exp-panel" data-panel="2">
+      <p class="when">Sep 2019 — Jul 2022</p>
+      <h3>System Engineer – Cloud &amp; DevOps · TCS, Bengaluru</h3>
+      <ul>
+        <li>Production Kubernetes/GKE; Jenkins, Cloud Build, Terraform pipelines (40% less deployment effort).</li>
+        <li>Incident response across teams, SLA-tied alerting, Terraform + IAM during GCP migrations.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="panel" id="projects">
+  <h2>Projects</h2>
+  <div class="proj-grid">
+    <article class="proj tilt">
+      <div class="proj-top"><span>Python</span><strong>kubernetes-mlops-platform</strong></div>
+      <p>Model serving, artifacts, promotion, and inference autoscaling on Kubernetes.</p>
+      <div class="proj-actions">
+        <a class="ghost" href="https://github.com/iarsingh/kubernetes-mlops-platform" target="_blank" rel="noopener">Github</a>
+      </div>
+    </article>
+    <article class="proj tilt">
+      <div class="proj-top"><span>JavaScript</span><strong>ai-mock-interviewer</strong></div>
+      <p>Voice-led interview practice for DevOps, SRE, Platform, and MLOps roles.</p>
+      <div class="proj-actions">
+        <a class="ghost" href="https://github.com/iarsingh/ai-mock-interviewer" target="_blank" rel="noopener">Github</a>
+      </div>
+    </article>
+    <article class="proj tilt">
+      <div class="proj-top"><span>HCL</span><strong>terraform-gcp-platform</strong></div>
+      <p>Reusable GCP/GKE landing-zone patterns: namespaces, service accounts, guardrails.</p>
+      <div class="proj-actions">
+        <a class="ghost" href="https://github.com/iarsingh/terraform-gcp-platform" target="_blank" rel="noopener">Github</a>
+      </div>
+    </article>
+    <article class="proj tilt">
+      <div class="proj-top"><span>Shell</span><strong>gitops-kubernetes-deployment</strong></div>
+      <p>GitOps promotion with Argo CD-style workflows from prototype to controlled release.</p>
+      <div class="proj-actions">
+        <a class="ghost" href="https://github.com/iarsingh/gitops-kubernetes-deployment" target="_blank" rel="noopener">Github</a>
+      </div>
+    </article>
+    <article class="proj tilt">
+      <div class="proj-top"><span>Shell</span><strong>github-actions-devops-templates</strong></div>
+      <p>Reusable CI, scanning, container builds, GKE deploy, and rollback templates.</p>
+      <div class="proj-actions">
+        <a class="ghost" href="https://github.com/iarsingh/github-actions-devops-templates" target="_blank" rel="noopener">Github</a>
+      </div>
+    </article>
+    <article class="proj tilt">
+      <div class="proj-top"><span>Jupyter</span><strong>mlops-zoomcamp</strong></div>
+      <p>Hands-on MLOps: tracking, pipelines, deployment, monitoring.</p>
+      <div class="proj-actions">
+        <a class="ghost" href="https://github.com/iarsingh/mlops-zoomcamp" target="_blank" rel="noopener">Github</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="panel" id="certificates">
+  <h2>Certificates</h2>
+  <div class="carousel">
+    <button class="car-btn" id="prevCert" type="button" aria-label="Previous">‹</button>
+    <div class="car-track" id="carTrack">
+      <a class="slide" href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e/badges/credly" target="_blank" rel="noopener">
+        <p class="issuer">Google Cloud</p>
+        <h3>Professional Cloud DevOps Engineer</h3>
+        <p>Expires Jun 2027</p>
+        <span class="show">Show Credential</span>
+      </a>
+      <a class="slide" href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e/badges/credly" target="_blank" rel="noopener">
+        <p class="issuer">Google Cloud</p>
+        <h3>Professional Cloud Network Engineer</h3>
+        <p>Expires Dec 2027</p>
+        <span class="show">Show Credential</span>
+      </a>
+      <a class="slide" href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e/badges/credly" target="_blank" rel="noopener">
+        <p class="issuer">Google Cloud</p>
+        <h3>Associate Cloud Engineer</h3>
+        <p>Expires Oct 2027</p>
+        <span class="show">Show Credential</span>
+      </a>
+      <a class="slide" href="https://partner.skills.google/public_profiles/73b05fe2-54bc-4552-91e6-a41996c0d21d" target="_blank" rel="noopener">
+        <p class="issuer">Google Skills</p>
+        <h3>Diamond League · 89,118 pts</h3>
+        <p>AI Infrastructure, RAG, GKE, Terraform</p>
+        <span class="show">Show Profile</span>
+      </a>
+      <a class="slide" href="https://learn.microsoft.com/en-in/users/akhileshranjansingh-2535/" target="_blank" rel="noopener">
+        <p class="issuer">Microsoft Learn</p>
+        <h3>Level 8 · AZ-400 &amp; AZ-104 trophies</h3>
+        <p>44 badges · 56,625 XP</p>
+        <span class="show">Show Profile</span>
+      </a>
+      <a class="slide" href="https://www.hackerrank.com/profile/akhileshranjan_1" target="_blank" rel="noopener">
+        <p class="issuer">HackerRank</p>
+        <h3>SQL Advanced · Python · Go · Java</h3>
+        <p>Verified skill certs</p>
+        <span class="show">Show Profile</span>
+      </a>
+    </div>
+    <button class="car-btn" id="nextCert" type="button" aria-label="Next">›</button>
+  </div>
+</section>
+
+<section class="panel" id="resume">
+  <h2>Resume</h2>
+  <button class="btn-primary" id="downloadPdf" type="button">⬇ Save as PDF</button>
+  <div class="resume-card">
+    <h3>Akhilesh Ranjan Singh</h3>
+    <p class="muted">Noida · <a href="mailto:akhileshranjan.ks@gmail.com">akhileshranjan.ks@gmail.com</a> · +91-8002392976 · github.com/iarsingh</p>
+    <p>Forward Deployed Engineer aspirant. 7+ years Cloud &amp; Platform on GCP, Azure, AWS. Kubernetes, Terraform, CI/CD, DevSecOps. Building AI/MLOps/RAG on Kubernetes.</p>
+    <p>B.E. Computer Science, RGPV Bhopal, 2019.</p>
+  </div>
+</section>
+
+<section class="panel" id="contact">
+  <h2>Contact Me</h2>
+  <p class="muted">Open to Forward Deployed Engineering and AI Platform Engineering roles.</p>
+  <p><a class="mail-link" href="mailto:akhileshranjan.ks@gmail.com">akhileshranjan.ks@gmail.com</a></p>
+  <form class="form" id="contactForm">
+    <label>Your email<input name="email" type="email" required placeholder="name@email.com"></label>
+    <label>Subject<input name="subject" required placeholder="How can we work together?"></label>
+    <label>Your message<textarea name="message" rows="5" required placeholder="Leave a note…"></textarea></label>
+    <button class="btn-primary" type="submit">Send message</button>
+    <p class="form-status" id="formStatus" hidden></p>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Akhilesh Ranjan Singh</p>
+  <p><a href="https://github.com/iarsingh/iarsingh.github.io">Source</a></p>
+</footer>
 <script src="./script.js"></script>
 </body>
 </html>
