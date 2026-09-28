@@ -183,15 +183,11 @@ a { color: var(--accent); }
 }
 @media (max-width: 800px) {
   .nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 10px 12px;
   }
   .nav-links {
-    order: 3;
-    width: 100%;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    display: none;
   }
 }
 .icon-btn {
