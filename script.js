@@ -35,19 +35,20 @@
   );
   sections.forEach((s) => spy.observe(s));
 
-  // Copy email
   const copyBtn = document.getElementById("copyEmail");
-  copyBtn.addEventListener("click", async () => {
-    const email = copyBtn.dataset.email;
-    try {
-      await navigator.clipboard.writeText(email);
-      const original = copyBtn.textContent;
-      copyBtn.textContent = "✓ copied";
-      setTimeout(() => (copyBtn.textContent = original), 1500);
-    } catch {
-      window.location.href = `mailto:${email}`;
-    }
-  });
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      const email = copyBtn.dataset.email;
+      try {
+        await navigator.clipboard.writeText(email);
+        const original = copyBtn.textContent;
+        copyBtn.textContent = "✓ copied";
+        setTimeout(() => (copyBtn.textContent = original), 1500);
+      } catch {
+        window.location.href = `mailto:${email}`;
+      }
+    });
+  }
 
   // Download / print
   document.getElementById("downloadPdf").addEventListener("click", () => window.print());
