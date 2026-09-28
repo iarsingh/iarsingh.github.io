@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260928d">
+<link rel="stylesheet" href="styles.css?v=20260928j">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -27,6 +27,9 @@
     <a href="#about" data-nav>☺ About Me</a>
     <a href="#experience" data-nav>⚒ Experience</a>
     <a href="#projects" data-nav>▣ Projects</a>
+    <a href="#skills" data-nav>✶ Skills</a>
+    <a href="#education" data-nav>▣ Education</a>
+    <a href="#achievements" data-nav>★ Achievements</a>
     <a href="#certificates" data-nav>▣ Certificates</a>
     <a href="#contact" data-nav>✈ Contact Me</a>
   </nav>
@@ -58,10 +61,42 @@
         <div class="ring ring-b" aria-hidden="true"></div>
         <img class="planet" src="akhilesh.jpg" alt="Akhilesh Ranjan Singh" width="160" height="160">
         <div class="spinner" aria-hidden="true">
-          <span class="sat" style="--a:0deg"><b>DevOps</b></span>
-          <span class="sat" style="--a:90deg"><b>Automation</b></span>
-          <span class="sat" style="--a:180deg"><b>Cloud</b></span>
-          <span class="sat" style="--a:270deg"><b>AI</b></span>
+          <span class="sat" style="--a:0deg">
+            <span class="doodle doodle-loop">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 24c-3.8-7.4-12.2-8.2-15.4-3.2-3 4.6.4 10.6 7.2 9.8 4.2-.4 8.4-4.2 8.2-6.6"/>
+                <path d="M24 24c3.8 7.4 12.2 8.2 15.4 3.2 3-4.6-.4-10.6-7.2-9.8-4.2.4-8.4 4.2-8.2 6.6"/>
+                <path d="M18.5 21.2c1.2-1.6 3.4-1.2 4.2.6M29.5 26.8c-1.2 1.6-3.4 1.2-4.2-.6"/>
+              </svg>
+            </span>
+          </span>
+          <span class="sat" style="--a:90deg">
+            <span class="doodle doodle-gear">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="24" cy="24" r="7.5"/>
+                <circle cx="24" cy="24" r="2.4"/>
+                <path d="M24 9.5v4.2M24 34.3v4.2M9.5 24h4.2M34.3 24h4.2"/>
+                <path d="M13.6 13.6l3 3M31.4 31.4l3 3M13.6 34.4l3-3M31.4 16.6l3-3"/>
+                <path d="M20.2 10.4l1.1 3.8M26.7 33.8l1.1 3.8M10.4 27.8l3.8-1.1M33.8 20.2l3.8-1.1"/>
+              </svg>
+            </span>
+          </span>
+          <span class="sat" style="--a:180deg">
+            <span class="doodle doodle-cloud">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 31.5h19.2c3.6-.2 6.4-3.4 6.1-7.1-.3-3.4-3-5.8-6.4-6.2-1.1-5.4-6.6-8.8-11.8-7.2-3.4 1-5.7 4-6.4 7.3-3.8.2-6.8 3.6-6.5 7.4.3 3.4 3.4 5.7 5.8 5.8z"/>
+                <path d="M18 27.5c1.6-1 3.4-.6 4.2.8M26.5 28.2c1.4-.8 3.2-.4 3.8.9"/>
+              </svg>
+            </span>
+          </span>
+          <span class="sat" style="--a:270deg">
+            <span class="doodle doodle-spark">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 7.5l2.4 11.2 11.1-3.6-8.4 8.6 9.4 7.2-12.2-1.6-1.2 11.2-3.6-11-11.4 2.4 8-8.8-8.8-6.6 11.6 2.2z"/>
+                <path d="M24 19.5v9M19.8 24h8.4"/>
+              </svg>
+            </span>
+          </span>
         </div>
       </div>
     </div>
@@ -76,6 +111,9 @@
   <a href="#about">About Me</a>
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#education">Education</a>
+  <a href="#achievements">Achievements</a>
   <a href="#certificates">Certificates</a>
   <a href="#contact">Contact Me</a>
 </div>
@@ -84,7 +122,7 @@
   <h2>About Me</h2>
   <div class="about-grid">
     <div class="about-visual">
-      <img class="blob" src="akhilesh.jpg" alt="Akhilesh Ranjan Singh">
+      <img class="about-photo" src="akhilesh.jpg" alt="Akhilesh Ranjan Singh">
       <p class="muted">Problem → Prototype → API → Infra → Deploy → Observe → Production</p>
     </div>
     <div class="about-copy">
@@ -117,27 +155,43 @@
       <p class="when">Sep 2024 — Present</p>
       <h3>DevOps Engineer · Capgemini, Noida</h3>
       <ul>
-        <li>Enterprise GCP landing zones: Shared VPC, project hierarchy, remote state, IAM, policy-as-code — so teams provision without waiting on tickets.</li>
-        <li>Terraform Enterprise modules for networking, IAM, Kubernetes, monitoring, and security — 70% less provisioning effort.</li>
-        <li>Self-service delivery via Git CI/CD, Harness, Jira, and ServiceNow.</li>
-        <li>Production GKE, 20% cloud-cost reduction, Cloud Armor + OpenTelemetry, MLflow/FastAPI MLOps paths.</li>
+        <li>Designing and governing enterprise-scale GCP landing zones leveraging Shared VPC architecture, project hierarchies, remote state management, IAM governance, and policy-as-code controls to ensure secure, scalable, and compliant cloud adoption.</li>
+        <li>Developing and standardizing reusable Terraform Enterprise modules for networking, IAM, GKE, monitoring, logging, load balancing, security, and AI infrastructure, reducing infrastructure provisioning effort by 70% and accelerating platform deployment.</li>
+        <li>Enabling self-service infrastructure delivery through integration of Terraform Enterprise with Git-based CI/CD platforms, Harness, Jira, and ServiceNow, streamlining change management and improving developer productivity.</li>
+        <li>Administering production-grade GKE environments, managing cluster and node pool lifecycle, upgrades, autoscaling, RBAC, networking, workload scheduling, and platform operations to ensure scalability, high availability, and service reliability.</li>
+        <li>Building and managing CI/CD and GitOps workflows using Jenkins, GitHub Actions, Harness, ArgoCD, Docker, Kubernetes, Helm, and Terraform, enabling automated and reliable application and infrastructure deployments across multiple environments.</li>
+        <li>Driving SRE and production reliability practices through proactive monitoring, alerting, incident response, root cause analysis (RCA), capacity planning, and operational improvements to maintain highly available business-critical services.</li>
+        <li>Enhancing cloud security and observability by implementing Cloud Armor WAF policies, rate limiting, Adaptive Protection, OpenTelemetry instrumentation, threat-intelligence integrations, and continuous attack-surface monitoring using IONIX and Stream Security.</li>
+        <li>Driving cloud cost optimization, achieving a 20% reduction in cloud expenditure through resource rightsizing, autoscaling, capacity planning, and cloud governance practices.</li>
+        <li>Designing and implementing MLOps workflows on GCP using Vertex AI Pipelines, Vertex AI Model Registry, MLflow, FastAPI, Docker, and Kubernetes for model deployment, versioning, experiment tracking, and lifecycle management.</li>
+        <li>Engineering Generative AI and LLMOps workflows using Vertex AI, Gemini, RAG, embeddings, vector databases, and FastAPI, enabling context-aware LLM capabilities and secure integration with enterprise applications.</li>
+        <li>Developing Agentic AI workflows using LangGraph and LangChain, implementing tool calling, stateful workflows, conditional routing, human-in-the-loop controls, and integration with enterprise APIs and backend services.</li>
+        <li>Implementing observability, security, and governance for AI workloads, incorporating OpenTelemetry-based tracing, structured logging, IAM/RBAC, secrets management, API authentication, and least-privilege access across MLOps, GenAI, and Agentic AI platforms.</li>
+        <li>Leading GitHub-to-Bitbucket migration and repository standardization initiatives, improving source-code governance, CI/CD integration, engineering workflows, and operational efficiency.</li>
       </ul>
     </article>
     <article class="exp-panel" data-panel="1">
       <p class="when">Jul 2022 — Sep 2024</p>
       <h3>Senior Software Engineer – DevOps · Tech Mahindra, Mumbai</h3>
       <ul>
-        <li>CI/CD platform engineering with Jenkins, GitHub Actions, Terraform, Docker, Kubernetes, Helm, Ansible.</li>
-        <li>IaC across GCP, AWS, Azure; 99.9% Kubernetes availability; Veeam / Kasten K10 DR; JFrog Artifactory.</li>
-        <li>Partnered with Google Cloud, Microsoft, and AWS engineering — the same customer-site muscle FDE needs.</li>
+        <li>Drove enterprise-scale CI/CD platform engineering using Jenkins, GitHub Actions, Terraform, Docker, Kubernetes, Helm, and Ansible, enhancing release efficiency and deployment reliability.</li>
+        <li>Delivered Infrastructure as Code (IaC) solutions across GCP, AWS, and Azure using Terraform and Ansible, streamlining provisioning, configuration management, backup automation, and disaster recovery processes.</li>
+        <li>Administered highly available Kubernetes-based application platforms leveraging Docker and Helm, enabling scalable application delivery and maintaining 99.9% service availability through proactive monitoring and operational excellence.</li>
+        <li>Strengthened platform security and resilience by implementing DevSecOps controls, enterprise backup and disaster recovery solutions, observability frameworks, secure artifact management practices, and collaborating with cloud engineering teams to optimize infrastructure performance.</li>
+        <li>Managed enterprise backup, disaster recovery, and data protection frameworks utilizing Veeam and Kasten K10, ensuring business continuity and platform resilience across cloud-native environments.</li>
+        <li>Integrated cloud object storage (S3, GCS, Azure Blob) with CI/CD pipelines and Kubernetes workloads for artifact storage, state file management, and application data persistence.</li>
+        <li>Implemented monitoring and observability solutions using Prometheus, Grafana, and ELK Stack, enabling proactive infrastructure monitoring, centralized logging, alerting, and faster incident troubleshooting.</li>
       </ul>
     </article>
     <article class="exp-panel" data-panel="2">
       <p class="when">Sep 2019 — Jul 2022</p>
       <h3>System Engineer – Cloud &amp; DevOps · TCS, Bengaluru</h3>
       <ul>
-        <li>Production Kubernetes/GKE; Jenkins, Cloud Build, Terraform pipelines (40% less deployment effort).</li>
-        <li>Incident response across teams, SLA-tied alerting, Terraform + IAM during GCP migrations.</li>
+        <li>Managed production Kubernetes and GKE environments supporting business-critical applications, ensuring high availability, platform stability, and operational excellence.</li>
+        <li>Automated CI/CD pipelines using Jenkins, Cloud Build, Terraform, and Infrastructure as Code practices, reducing deployment effort by 40% while improving consistency and delivery speed across GCP environments.</li>
+        <li>Facilitated GCP infrastructure provisioning, cloud migration, and platform reliability initiatives through Terraform automation, observability frameworks, IAM governance, Linux administration, performance optimization, and cross-functional collaboration with development, infrastructure, and security teams.</li>
+        <li>Managed end-to-end monitoring and alerting operations, proactively identifying system anomalies and ensuring high service availability across critical IT infrastructure and applications.</li>
+        <li>Participated in production incident management, troubleshooting, root cause analysis (RCA), and remediation activities, collaborating with application, infrastructure, and security teams to minimize service disruption and maintain SLA compliance.</li>
       </ul>
     </article>
   </div>
@@ -265,6 +319,6 @@
   <p>© 2026 Akhilesh Ranjan Singh</p>
   <p><a href="https://github.com/iarsingh/iarsingh.github.io">Source</a></p>
 </footer>
-<script src="script.js?v=20260928"></script>
+<script src="script.js?v=20260928j"></script>
 </body>
 </html>
