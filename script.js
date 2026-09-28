@@ -64,16 +64,40 @@
     });
   });
 
-  const slides = [...document.querySelectorAll(".slide")];
+  const track = document.getElementById("carTrack");
+  const slides = [...track.querySelectorAll(".slide")];
+  const caption = document.getElementById("certCaption");
+  const dotsWrap = document.getElementById("certDots");
+  const slider = document.getElementById("certSlider");
   let si = 0;
+  slides.forEach((s, n) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "cert-dot";
+    b.setAttribute("aria-label", `Show ${s.dataset.label}`);
+    b.addEventListener("click", () => show(n));
+    dotsWrap.append(b);
+  });
+  const dots = [...dotsWrap.children];
   const show = (i) => {
     si = (i + slides.length) % slides.length;
-    slides.forEach((s, n) => s.classList.toggle("on", n === si));
+    track.style.transform = `translateX(-${si * 100}%)`;
+    dots.forEach((d, n) => d.classList.toggle("on", n === si));
+    caption.textContent = `${si + 1} / ${slides.length} · ${slides[si].dataset.label}`;
   };
   show(0);
   document.getElementById("prevCert").addEventListener("click", () => show(si - 1));
   document.getElementById("nextCert").addEventListener("click", () => show(si + 1));
-  setInterval(() => show(si + 1), 6500);
+  let startX = 0;
+  slider.addEventListener("touchstart", (e) => { startX = e.changedTouches[0].clientX; }, { passive: true });
+  slider.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) < 40) return;
+    show(dx > 0 ? si - 1 : si + 1);
+  }, { passive: true });
+  let timer = setInterval(() => show(si + 1), 8000);
+  slider.addEventListener("mouseenter", () => clearInterval(timer));
+  slider.addEventListener("mouseleave", () => { timer = setInterval(() => show(si + 1), 8000); });
 
   const bars = document.querySelectorAll(".bar");
   const barObs = new IntersectionObserver((entries) => {

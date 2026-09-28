@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260928m">
+<link rel="stylesheet" href="styles.css?v=20260928q">
 </head>
 <body>
 <svg class="icon-sprite" aria-hidden="true" focusable="false">
@@ -271,49 +271,95 @@
   </div>
 </section>
 
+<section class="panel" id="education">
+  <h2><svg class="ico"><use href="#i-book"/></svg> Education</h2>
+  <ol class="edu-timeline">
+    <li>
+      <time datetime="2019">2019</time>
+      <article>
+        <h3>Bachelor of Engineering – Computer Science</h3>
+        <p class="muted">RGPV, Bhopal</p>
+        <p>CGPA 8.55</p>
+      </article>
+    </li>
+  </ol>
+</section>
+
+<section class="panel" id="achievements">
+  <h2><svg class="ico"><use href="#i-award"/></svg> Achievements</h2>
+  <div class="achieve-grid">
+    <article class="achieve-card">
+      <h3>Professional Cloud DevOps Engineer</h3>
+      <p>Google Cloud certification, 2025</p>
+    </article>
+    <article class="achieve-card">
+      <h3>Professional Cloud Network Engineer</h3>
+      <p>Google Cloud certification, 2025</p>
+    </article>
+    <article class="achieve-card">
+      <h3>Associate Cloud Engineer</h3>
+      <p>Google Cloud certification, 2024</p>
+    </article>
+    <article class="achieve-card">
+      <h3>Google Skills Diamond League</h3>
+      <p>89,118 points on the public Google Skills profile</p>
+    </article>
+    <article class="achieve-card">
+      <h3>Microsoft Learn Level 8</h3>
+      <p>AZ-400 and AZ-104 trophies · 44 badges · 56,625 XP</p>
+    </article>
+    <article class="achieve-card">
+      <h3>HackerRank skill certs</h3>
+      <p>Verified Python, Java, Go, and SQL certifications</p>
+    </article>
+    <article class="achieve-card">
+      <h3>LeetCode</h3>
+      <p>1,255 problems solved · global rank 15,723</p>
+    </article>
+  </div>
+</section>
+
 <section class="panel" id="certificates">
   <h2><svg class="ico"><use href="#i-badge"/></svg> Certificates</h2>
-  <div class="carousel">
-    <button class="car-btn" id="prevCert" type="button" aria-label="Previous">‹</button>
-    <div class="car-track" id="carTrack">
-      <a class="slide" href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e/badges/credly" target="_blank" rel="noopener">
-        <p class="issuer">Google Cloud</p>
-        <h3>Professional Cloud DevOps Engineer</h3>
-        <p>Expires Jun 2027</p>
-        <span class="show">Show Credential</span>
-      </a>
-      <a class="slide" href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e/badges/credly" target="_blank" rel="noopener">
-        <p class="issuer">Google Cloud</p>
-        <h3>Professional Cloud Network Engineer</h3>
-        <p>Expires Dec 2027</p>
-        <span class="show">Show Credential</span>
-      </a>
-      <a class="slide" href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e/badges/credly" target="_blank" rel="noopener">
-        <p class="issuer">Google Cloud</p>
-        <h3>Associate Cloud Engineer</h3>
-        <p>Expires Oct 2027</p>
-        <span class="show">Show Credential</span>
-      </a>
-      <a class="slide" href="https://partner.skills.google/public_profiles/73b05fe2-54bc-4552-91e6-a41996c0d21d" target="_blank" rel="noopener">
-        <p class="issuer">Google Skills</p>
-        <h3>Diamond League · 89,118 pts</h3>
-        <p>AI Infrastructure, RAG, GKE, Terraform</p>
-        <span class="show">Show Profile</span>
-      </a>
-      <a class="slide" href="https://learn.microsoft.com/en-in/users/akhileshranjansingh-2535/" target="_blank" rel="noopener">
-        <p class="issuer">Microsoft Learn</p>
-        <h3>Level 8 · AZ-400 &amp; AZ-104 trophies</h3>
-        <p>44 badges · 56,625 XP</p>
-        <span class="show">Show Profile</span>
-      </a>
-      <a class="slide" href="https://www.hackerrank.com/profile/akhileshranjan_1" target="_blank" rel="noopener">
-        <p class="issuer">HackerRank</p>
-        <h3>SQL Advanced · Python · Go · Java</h3>
-        <p>Verified skill certs</p>
-        <span class="show">Show Profile</span>
-      </a>
+  <div class="cert-slider" id="certSlider">
+    <p class="cert-caption" id="certCaption">1 / 4 · Google Cloud</p>
+    <div class="cert-viewport">
+      <button class="car-btn" id="prevCert" type="button">‹ Prev</button>
+      <div class="cert-window">
+        <div class="cert-track" id="carTrack">
+          <article class="slide" data-label="Google Cloud">
+            <p class="issuer">Google Cloud · Credly</p>
+            <ul class="cert-list">
+              <li><strong>Professional Cloud DevOps Engineer</strong><span>Expires Jun 2027</span></li>
+              <li><strong>Professional Cloud Network Engineer</strong><span>Expires Dec 2027</span></li>
+              <li><strong>Associate Cloud Engineer</strong><span>Expires Oct 2027</span></li>
+            </ul>
+            <a class="show" href="https://www.credly.com/users/akhilesh-ranjan-singh.ca5f4b1e/badges/credly" target="_blank" rel="noopener">Show credentials</a>
+          </article>
+          <article class="slide" data-label="Google Skills">
+            <p class="issuer">Google Skills</p>
+            <h3>Diamond League · 89,118 pts</h3>
+            <p class="muted">AI Infrastructure, RAG, GKE, Terraform</p>
+            <a class="show" href="https://partner.skills.google/public_profiles/73b05fe2-54bc-4552-91e6-a41996c0d21d" target="_blank" rel="noopener">Show profile</a>
+          </article>
+          <article class="slide" data-label="Microsoft Learn">
+            <p class="issuer">Microsoft Learn</p>
+            <h3>Level 8 · AZ-400 &amp; AZ-104 trophies</h3>
+            <p class="muted">44 badges · 56,625 XP</p>
+            <a class="show" href="https://learn.microsoft.com/en-in/users/akhileshranjansingh-2535/" target="_blank" rel="noopener">Show profile</a>
+          </article>
+          <article class="slide" data-label="HackerRank">
+            <p class="issuer">HackerRank</p>
+            <h3>SQL Advanced · Python · Go · Java</h3>
+            <p class="muted">Verified skill certifications</p>
+            <a class="show" href="https://www.hackerrank.com/profile/akhileshranjan_1" target="_blank" rel="noopener">Show profile</a>
+          </article>
+        </div>
+      </div>
+      <button class="car-btn" id="nextCert" type="button">Next ›</button>
     </div>
-    <button class="car-btn" id="nextCert" type="button" aria-label="Next">›</button>
+    <div class="cert-dots" id="certDots" role="tablist" aria-label="Certificate groups"></div>
+    <p class="cert-hint muted">Swipe or use arrows</p>
   </div>
 </section>
 
@@ -345,6 +391,6 @@
   <p>© 2026 Akhilesh Ranjan Singh</p>
   <p><a href="https://github.com/iarsingh/iarsingh.github.io">Source</a></p>
 </footer>
-<script src="script.js?v=20260928m"></script>
+<script src="script.js?v=20260928q"></script>
 </body>
 </html>
