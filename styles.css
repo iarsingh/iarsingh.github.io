@@ -120,10 +120,9 @@ a { color: var(--accent-2); }
 @media (max-width: 900px) { .topnav { display: none; } }
 
 .hero {
-  min-height: min(88vh, 680px);
   display: grid;
   place-items: center;
-  padding: 56px 6vw 28px;
+  padding: 28px 6vw 0;
 }
 .hero-inner {
   width: min(1120px, 100%);
@@ -256,9 +255,11 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 0 0 12px; letter-spacing: -.
   border-radius: 8px;
   box-sizing: content-box;
 }
-.about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: center; }
+.about-grid { display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center; }
+.about-copy h3 { margin-top: 0; }
+.about-copy p { margin: 0 0 10px; }
 .about-photo {
-  width: 180px; height: 180px; object-fit: cover; object-position: center 12%;
+  width: 240px; height: 240px; object-fit: cover; object-position: center 12%;
   border-radius: 50%;
   border: 3px solid color-mix(in srgb, var(--accent-2) 70%, transparent);
   display: block;
@@ -466,7 +467,9 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 0 0 12px; letter-spacing: -.
 footer { padding: 16px 6vw 56px; color: var(--muted); display: flex; justify-content: space-between; }
 
 @media (max-width: 900px) {
-  .hero { min-height: 0; padding: 44px 5vw 16px; }
+  .hero { padding: 24px 5vw 0; }
+  .about-visual { display: grid; justify-items: center; }
+  .about-photo { width: 180px; height: 180px; }
   .panel { padding: 32px 5vw 18px; }
   .hero-inner, .about-grid, .proj-grid, .cert-viewport { grid-template-columns: 1fr; }
   .stage { height: 340px; }
