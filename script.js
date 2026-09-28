@@ -73,7 +73,14 @@
         }
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0.01, rootMargin: "0px 0px -8% 0px" }
   );
-  document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
+  document.querySelectorAll(".reveal").forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add("in-view");
+    } else {
+      reveal.observe(el);
+    }
+  });
 })();
