@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260928b">
+<link rel="stylesheet" href="styles.css?v=20260928c">
 </head>
 <body>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -51,16 +51,18 @@
         <a class="soc" href="https://www.hackerrank.com/profile/akhileshranjan_1" target="_blank" rel="noopener" aria-label="HackerRank" title="HackerRank">HR</a>
       </div>
     </div>
-    <div class="stage" id="stage" aria-hidden="true">
-      <div class="diamond"></div>
+    <div class="stage" id="stage">
+      <div class="diamond" aria-hidden="true"></div>
       <div class="orbit-wrap">
-        <div class="ring ring-a"></div>
-        <div class="ring ring-b"></div>
-        <div class="planet">AR</div>
-        <span class="sat s1">K8s</span>
-        <span class="sat s2">GCP</span>
-        <span class="sat s3">TF</span>
-        <span class="sat s4">AI</span>
+        <div class="ring ring-a" aria-hidden="true"></div>
+        <div class="ring ring-b" aria-hidden="true"></div>
+        <img class="planet" src="akhilesh.jpg" alt="Akhilesh Ranjan Singh" width="160" height="160">
+        <div class="spinner" aria-hidden="true">
+          <span class="sat s1"><span>DevOps</span></span>
+          <span class="sat s2"><span>Automation</span></span>
+          <span class="sat s3"><span>Cloud</span></span>
+          <span class="sat s4"><span>AI</span></span>
+        </div>
       </div>
     </div>
   </div>
@@ -82,7 +84,7 @@
   <h2>About Me</h2>
   <div class="about-grid">
     <div class="about-visual">
-      <div class="blob">FDE</div>
+      <img class="blob" src="akhilesh.jpg" alt="Akhilesh Ranjan Singh">
       <p class="muted">Problem → Prototype → API → Infra → Deploy → Observe → Production</p>
     </div>
     <div class="about-copy">
