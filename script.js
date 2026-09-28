@@ -6,7 +6,6 @@
   const setTheme = (mode) => {
     root.setAttribute("data-theme", mode);
     localStorage.setItem("theme", mode);
-    themeBtn.textContent = mode === "dark" ? "☀" : "☾";
   };
   const current = () => root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
   setTheme(stored || current());
@@ -106,10 +105,6 @@
     cursor.style.left = `${e.clientX}px`;
     cursor.style.top = `${e.clientY}px`;
   });
-  document.querySelectorAll("a, button").forEach((el) => {
-    el.addEventListener("mouseenter", () => cursor.classList.add("grow"));
-    el.addEventListener("mouseleave", () => cursor.classList.remove("grow"));
-  });
 
   const stage = document.getElementById("stage");
   stage.addEventListener("mousemove", (e) => {
@@ -139,4 +134,72 @@
     });
     card.addEventListener("mouseleave", () => { card.style.transform = ""; });
   });
+
+  const net = document.getElementById("bgNet");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (net && !reduceMotion) {
+    const ctx = net.getContext("2d");
+    const mobile = matchMedia("(max-width: 700px)").matches;
+    const nodes = [];
+    const count = mobile ? 18 : 34;
+    const maxD = mobile ? 90 : 128;
+    const resize = () => {
+      net.width = innerWidth;
+      net.height = innerHeight;
+    };
+    const seed = () => {
+      nodes.length = 0;
+      for (let i = 0; i < count; i++) {
+        nodes.push({
+          x: Math.random() * net.width,
+          y: Math.random() * net.height,
+          vx: (Math.random() - 0.5) * 0.16,
+          vy: (Math.random() - 0.5) * 0.16
+        });
+      }
+    };
+    resize();
+    seed();
+    addEventListener("resize", () => { resize(); seed(); }, { passive: true });
+    const rgbOf = () => {
+      const hex = getComputedStyle(root).getPropertyValue("--accent-2").trim();
+      if (!hex.startsWith("#") || hex.length < 7) return [62, 207, 178];
+      return [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)];
+    };
+    let raf = 0;
+    const frame = () => {
+      const [r, g, b] = rgbOf();
+      ctx.clearRect(0, 0, net.width, net.height);
+      for (const n of nodes) {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < 0 || n.x > net.width) n.vx *= -1;
+        if (n.y < 0 || n.y > net.height) n.vy *= -1;
+        ctx.fillStyle = `rgba(${r},${g},${b},0.32)`;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 1.15, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const d = Math.hypot(dx, dy);
+          if (d > maxD) continue;
+          ctx.strokeStyle = `rgba(${r},${g},${b},${0.1 * (1 - d / maxD)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+      raf = requestAnimationFrame(frame);
+    };
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else frame();
+    });
+    frame();
+  }
 })();

@@ -15,23 +15,42 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260928j">
+<link rel="stylesheet" href="styles.css?v=20260928m">
 </head>
 <body>
+<svg class="icon-sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11.2 12 4.2l8 7V20a1 1 0 0 1-1 1h-5.2v-6.2H10.2V21H5a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M5.2 19.4c1.4-3.2 3.7-4.8 6.8-4.8s5.4 1.6 6.8 4.8"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3.4" y="8" width="17.2" height="11.4" rx="1.6"/><path d="M9 8V6.4A1.4 1.4 0 0 1 10.4 5h3.2A1.4 1.4 0 0 1 15 6.4V8M3.4 12.5h17.2"/></symbol>
+  <symbol id="i-folders" viewBox="0 0 24 24"><path d="M4 9.2h6.2l1.6 1.6H20v8.4H4z"/><path d="M7.2 9.2V6.8h6l1.4 1.4H20v2"/></symbol>
+  <symbol id="i-bars" viewBox="0 0 24 24"><path d="M5 18V10M12 18V6M19 18v-5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 5.4h6.4A2.6 2.6 0 0 1 14 8v11.2H7.4A2.4 2.4 0 0 1 5 16.8z"/><path d="M14 8h5v9.2a2.4 2.4 0 0 1-2.4 2.4H14"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9.2" r="5"/><path d="m8.6 13.6-1.4 6.2 4.8-2.4 4.8 2.4-1.4-6.2"/></symbol>
+  <symbol id="i-badge" viewBox="0 0 24 24"><rect x="6" y="3.6" width="12" height="16.8" rx="1.4"/><path d="M9 8h6M9 11.4h6M9 14.8h3.4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.4" y="5.6" width="17.2" height="12.8" rx="1.6"/><path d="m4 7.2 8 6.2 8-6.2"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M7 3.6h7.2L19.4 9v11.4H7z"/><path d="M14.2 3.6V9h5.2M9.4 13h5.2M9.4 16.4h3.6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.4"/><path d="M12 3.6v2.2M12 18.2v2.2M3.6 12h2.2M18.2 12h2.2M6.1 6.1l1.6 1.6M16.3 16.3l1.6 1.6M6.1 17.9l1.6-1.6M16.3 7.7l1.6-1.6"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M16.8 13.6A6.4 6.4 0 0 1 10.4 5.2 7 7 0 1 0 18.8 15a6.3 6.3 0 0 1-2-.4z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h14"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4.4v10.4M8.2 11.2 12 15l3.8-3.8M5 19.6h14"/></symbol>
+</svg>
+<div class="bg-mesh" aria-hidden="true"></div>
+<canvas class="bg-net" id="bgNet" aria-hidden="true"></canvas>
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <header class="topnav" id="top">
   <nav class="topnav-links" aria-label="Primary">
-    <a href="#home" class="active" data-nav>⌂ Home</a>
-    <a href="#about" data-nav>☺ About Me</a>
-    <a href="#experience" data-nav>⚒ Experience</a>
-    <a href="#projects" data-nav>▣ Projects</a>
-    <a href="#skills" data-nav>✶ Skills</a>
-    <a href="#education" data-nav>▣ Education</a>
-    <a href="#achievements" data-nav>★ Achievements</a>
-    <a href="#certificates" data-nav>▣ Certificates</a>
-    <a href="#contact" data-nav>✈ Contact Me</a>
+    <a href="#home" class="active" data-nav><svg class="ico"><use href="#i-home"/></svg> Home</a>
+    <a href="#about" data-nav><svg class="ico"><use href="#i-user"/></svg> About Me</a>
+    <a href="#experience" data-nav><svg class="ico"><use href="#i-briefcase"/></svg> Experience</a>
+    <a href="#projects" data-nav><svg class="ico"><use href="#i-folders"/></svg> Projects</a>
+    <a href="#skills" data-nav><svg class="ico"><use href="#i-bars"/></svg> Skills</a>
+    <a href="#education" data-nav><svg class="ico"><use href="#i-book"/></svg> Education</a>
+    <a href="#achievements" data-nav><svg class="ico"><use href="#i-award"/></svg> Achievements</a>
+    <a href="#certificates" data-nav><svg class="ico"><use href="#i-badge"/></svg> Certificates</a>
+    <a href="#contact" data-nav><svg class="ico"><use href="#i-mail"/></svg> Contact Me</a>
   </nav>
 </header>
 
@@ -103,23 +122,30 @@
   </div>
 </section>
 
-<button class="fab fab-theme" id="themeToggle" type="button" aria-label="Toggle color theme">☀</button>
-<button class="fab fab-menu" id="menuToggle" type="button" aria-label="Open menu">▦</button>
+<button class="fab fab-theme" id="themeToggle" type="button" aria-label="Toggle color theme">
+  <svg class="ico ico-sun"><use href="#i-sun"/></svg>
+  <svg class="ico ico-moon"><use href="#i-moon"/></svg>
+</button>
+<button class="fab fab-menu" id="menuToggle" type="button" aria-label="Open menu">
+  <svg class="ico"><use href="#i-menu"/></svg>
+</button>
 <div class="drawer" id="drawer" hidden>
-  <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">✕</button>
-  <a href="#home">Home</a>
-  <a href="#about">About Me</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#education">Education</a>
-  <a href="#achievements">Achievements</a>
-  <a href="#certificates">Certificates</a>
-  <a href="#contact">Contact Me</a>
+  <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">
+    <svg class="ico"><use href="#i-close"/></svg>
+  </button>
+  <a href="#home"><svg class="ico"><use href="#i-home"/></svg> Home</a>
+  <a href="#about"><svg class="ico"><use href="#i-user"/></svg> About Me</a>
+  <a href="#experience"><svg class="ico"><use href="#i-briefcase"/></svg> Experience</a>
+  <a href="#projects"><svg class="ico"><use href="#i-folders"/></svg> Projects</a>
+  <a href="#skills"><svg class="ico"><use href="#i-bars"/></svg> Skills</a>
+  <a href="#education"><svg class="ico"><use href="#i-book"/></svg> Education</a>
+  <a href="#achievements"><svg class="ico"><use href="#i-award"/></svg> Achievements</a>
+  <a href="#certificates"><svg class="ico"><use href="#i-badge"/></svg> Certificates</a>
+  <a href="#contact"><svg class="ico"><use href="#i-mail"/></svg> Contact Me</a>
 </div>
 
 <section class="panel" id="about">
-  <h2>About Me</h2>
+  <h2><svg class="ico"><use href="#i-user"/></svg> About Me</h2>
   <div class="about-grid">
     <div class="about-visual">
       <img class="about-photo" src="akhilesh.jpg" alt="Akhilesh Ranjan Singh">
@@ -144,7 +170,7 @@
 </section>
 
 <section class="panel" id="experience">
-  <h2>Experience</h2>
+  <h2><svg class="ico"><use href="#i-briefcase"/></svg> Experience</h2>
   <div class="exp">
     <div class="exp-tabs" role="tablist">
       <button class="exp-tab active" data-tab="0" type="button">Capgemini</button>
@@ -198,7 +224,7 @@
 </section>
 
 <section class="panel" id="projects">
-  <h2>Projects</h2>
+  <h2><svg class="ico"><use href="#i-folders"/></svg> Projects</h2>
   <div class="proj-grid">
     <article class="proj tilt">
       <div class="proj-top"><span>Python</span><strong>kubernetes-mlops-platform</strong></div>
@@ -246,7 +272,7 @@
 </section>
 
 <section class="panel" id="certificates">
-  <h2>Certificates</h2>
+  <h2><svg class="ico"><use href="#i-badge"/></svg> Certificates</h2>
   <div class="carousel">
     <button class="car-btn" id="prevCert" type="button" aria-label="Previous">‹</button>
     <div class="car-track" id="carTrack">
@@ -292,8 +318,8 @@
 </section>
 
 <section class="panel" id="resume">
-  <h2>Resume</h2>
-  <button class="btn-primary" id="downloadPdf" type="button">⬇ Save as PDF</button>
+  <h2><svg class="ico"><use href="#i-file"/></svg> Resume</h2>
+  <button class="btn-primary" id="downloadPdf" type="button"><svg class="ico"><use href="#i-download"/></svg> Save as PDF</button>
   <div class="resume-card">
     <h3>Akhilesh Ranjan Singh</h3>
     <p class="muted">Noida · <a href="mailto:akhileshranjan.ks@gmail.com">akhileshranjan.ks@gmail.com</a> · +91-8002392976 · github.com/iarsingh</p>
@@ -303,7 +329,7 @@
 </section>
 
 <section class="panel" id="contact">
-  <h2>Contact Me</h2>
+  <h2><svg class="ico"><use href="#i-mail"/></svg> Contact Me</h2>
   <p class="muted">Open to Forward Deployed Engineering and AI Platform Engineering roles.</p>
   <p><a class="mail-link" href="mailto:akhileshranjan.ks@gmail.com">akhileshranjan.ks@gmail.com</a></p>
   <form class="form" id="contactForm">
@@ -319,6 +345,6 @@
   <p>© 2026 Akhilesh Ranjan Singh</p>
   <p><a href="https://github.com/iarsingh/iarsingh.github.io">Source</a></p>
 </footer>
-<script src="script.js?v=20260928j"></script>
+<script src="script.js?v=20260928m"></script>
 </body>
 </html>
