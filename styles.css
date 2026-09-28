@@ -154,63 +154,61 @@ h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 0 0 12px; letter-spacing: -.
 }
 .soc:hover { transform: translateY(-4px) scale(1.06); }
 
-.stage { position: relative; height: 380px; }
+.stage { position: relative; height: 420px; }
 .diamond {
-  position: absolute; inset: 18%;
+  position: absolute; inset: 8%;
   border: 1px dashed var(--ring);
   transform: rotate(45deg);
-  animation: spin 18s linear infinite;
-  border-radius: 8px;
+  animation: spin 36s linear infinite;
+  border-radius: 14px;
 }
 .diamond::after {
   content: ""; position: absolute; inset: 18%;
-  border: 1px solid color-mix(in srgb, var(--accent-2) 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-2) 28%, transparent);
 }
 @keyframes spin { to { transform: rotate(405deg); } }
 .orbit-wrap { position: absolute; inset: 0; }
 .ring {
-  position: absolute; border: 1px solid rgba(255,255,255,.12); border-radius: 50%;
+  position: absolute; border: 1px dashed color-mix(in srgb, var(--accent-2) 28%, transparent); border-radius: 50%;
 }
-.ring-a { inset: 16%; animation: pulse 4s ease-in-out infinite; }
-.ring-b { inset: 0; }
-@keyframes pulse { 50% { transform: scale(1.04); opacity: .7; } }
+.ring-a { inset: 6%; animation: pulse 7s ease-in-out infinite; }
+.ring-b { inset: 0; animation: spin 48s linear infinite; }
+@keyframes pulse { 50% { transform: scale(1.03); opacity: .7; } }
 .planet {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  width: 148px; height: 148px; border-radius: 50%;
-  object-fit: cover; object-position: center 12%;
-  border: 3px solid var(--accent);
+  width: min(300px, 86%); height: auto; aspect-ratio: 1;
+  border-radius: 22px;
+  object-fit: contain;
+  object-position: center;
+  background: #f7fbff;
+  border: 2px solid color-mix(in srgb, var(--accent) 70%, transparent);
   box-shadow: var(--shadow);
   z-index: 2;
   animation: none;
 }
 .spinner {
   position: absolute; inset: 0;
-  animation: orbit 22s linear infinite;
+  animation: orbit 40s linear infinite;
+  z-index: 3;
+  pointer-events: none;
 }
 .sat {
   position: absolute; left: 50%; top: 50%;
   width: 0; height: 0;
   transform: rotate(var(--a));
 }
-.sat .doodle {
+.sat-dot::after {
+  content: "";
   position: absolute;
   left: 0; top: 0;
-  width: 52px; height: 52px;
-  display: grid; place-items: center;
-  color: var(--accent);
-  background: var(--card);
-  border: 1.6px dashed var(--accent-2);
-  border-radius: 42% 58% 38% 62%;
-  transform: translate(-50%, -168px) rotate(calc(-1 * var(--a)));
-  animation: unspin 22s linear infinite;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-2) 35%, transparent);
+  transform: translate(-50%, -176px);
 }
-.sat .doodle svg { width: 32px; height: 32px; }
-.sat:nth-child(even) .doodle { color: var(--accent-2); border-color: var(--accent); border-radius: 58% 42% 62% 38%; }
+.sat-dot:nth-child(2)::after { background: var(--accent-2); }
 @keyframes orbit { to { transform: rotate(360deg); } }
-@keyframes unspin {
-  from { transform: translate(-50%, -168px) rotate(calc(-1 * var(--a))); }
-  to { transform: translate(-50%, -168px) rotate(calc(-1 * var(--a) - 360deg)); }
-}
 
 .fab {
   position: fixed; z-index: 35; width: 52px; height: 52px; border-radius: 50%;
@@ -443,19 +441,12 @@ footer { padding: 16px 6vw 56px; color: var(--muted); display: flex; justify-con
   .hero { min-height: 0; padding: 44px 5vw 16px; }
   .panel { padding: 32px 5vw 18px; }
   .hero-inner, .about-grid, .proj-grid, .cert-viewport { grid-template-columns: 1fr; }
-  .stage { height: 300px; }
-  .sat .doodle {
-    transform: translate(-50%, -124px) rotate(calc(-1 * var(--a)));
-    animation: unspin-sm 22s linear infinite;
-  }
-  @keyframes unspin-sm {
-    from { transform: translate(-50%, -124px) rotate(calc(-1 * var(--a))); }
-    to { transform: translate(-50%, -124px) rotate(calc(-1 * var(--a) - 360deg)); }
-  }
+  .stage { height: 340px; }
+  .sat-dot::after { transform: translate(-50%, -158px); }
   .car-btn { min-height: 44px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .spinner, .sat .doodle, .diamond { animation: none; }
+  .spinner, .diamond, .ring-a, .ring-b { animation: none; }
   .cert-track { transition: none; }
   .bg-net { display: none; }
   .bg-mesh::after { display: none; }
