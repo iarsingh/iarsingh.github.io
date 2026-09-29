@@ -288,6 +288,7 @@ mark { background: var(--mark); color: inherit; padding: 0 .15em; border-radius:
 .flow-step .ico { position: absolute; top: 20px; right: 20px; width: 22px; height: 22px; color: var(--accent); }
 .flow-step h3 { margin: 10px 0 8px; font-size: 1.05rem; letter-spacing: .1em; text-transform: uppercase; }
 .flow-step p { color: var(--muted); font-size: .96rem; }
+.flow-step .flow-tag { margin-bottom: 6px; font-family: var(--mono); font-size: .8rem; color: var(--accent); font-weight: 600; }
 .flow-outcome {
   margin-top: 28px; display: flex; align-items: center; gap: 10px; color: var(--muted);
 }
@@ -351,6 +352,9 @@ mark { background: var(--mark); color: inherit; padding: 0 .15em; border-radius:
 .facts { display: grid; gap: 16px; margin: 0; }
 .facts dt { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text); }
 .facts dd { margin: 4px 0 0; color: var(--muted); }
+.facts dd .tags { margin-top: 6px; }
+.project .more { margin-top: 4px; }
+.project .more .project-qa { margin-top: 4px; }
 .ticks { list-style: none; display: grid; gap: 7px; margin-top: 4px; }
 .ticks li { position: relative; padding-left: 22px; }
 .ticks li::before {
@@ -433,7 +437,17 @@ mark { background: var(--mark); color: inherit; padding: 0 .15em; border-radius:
   font-size: .88rem; padding: 5px 11px; border-radius: 8px;
   background: var(--surface-2); border: 1px solid var(--line); color: var(--muted);
 }
-.chips li.key { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--text); font-weight: 600; }
+.chips li:not(.key) { font-size: .82rem; padding: 4px 10px; border-style: dashed; }
+.chips li.key, .legend-chip.key {
+  background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--text); font-weight: 600; border-style: solid;
+}
+.skill-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; color: var(--muted); font-size: .9rem; }
+.legend-chip {
+  font-size: .8rem; padding: 3px 10px; border-radius: 8px; color: var(--muted);
+  background: var(--surface-2); border: 1px dashed var(--line);
+}
+.legend-chip:not(:first-child) { margin-left: 10px; }
 
 /* Credentials */
 .cred-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
