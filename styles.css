@@ -232,10 +232,22 @@ mark { background: var(--mark); color: inherit; padding: 0 .15em; border-radius:
 .section-tint { background: var(--surface-2); border-block: 1px solid var(--line); }
 .section-head { max-width: 720px; margin-bottom: 40px; }
 .kicker {
-  font-family: var(--mono); font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--cyan); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan);
 }
-.kicker::before { content: "// "; opacity: .7; }
+.kicker-num {
+  display: inline-grid; place-items: center; min-width: 30px; height: 30px; padding: 0 6px;
+  border-radius: 9px; background: linear-gradient(135deg, var(--accent), var(--cyan));
+  color: var(--on-accent); font-family: var(--mono); font-size: .76rem; letter-spacing: 0;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+.kicker::after {
+  content: ""; flex: 0 1 96px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--cyan), transparent);
+  transform-origin: left; transition: transform .7s ease .15s;
+}
+.js .kicker.reveal::after { transform: scaleX(0); }
+.js .kicker.reveal.in::after { transform: scaleX(1); }
 .section-head h2, .contact-copy h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); letter-spacing: -.02em; }
 .section-sub { margin-top: 12px; color: var(--muted); font-size: 1.05rem; }
 
@@ -566,6 +578,7 @@ mark { background: var(--mark); color: inherit; padding: 0 .15em; border-radius:
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .js .kicker.reveal::after { transform: none; transition: none; }
 }
 
 @media print {
@@ -574,5 +587,6 @@ mark { background: var(--mark); color: inherit; padding: 0 .15em; border-radius:
   .section, .hero { padding: 20px 0; }
   .section-tint { background: none; border: 0; }
   .js .reveal { opacity: 1; transform: none; }
+  .js .kicker.reveal::after { transform: none; transition: none; }
   details.more > *:not(summary) { display: block; }
 }
