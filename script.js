@@ -1,228 +1,117 @@
-
 (() => {
   const root = document.documentElement;
+  root.classList.add("js");
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   const themeBtn = document.getElementById("themeToggle");
-  const stored = localStorage.getItem("theme");
-  const setTheme = (mode) => {
-    root.setAttribute("data-theme", mode);
-    localStorage.setItem("theme", mode);
+  const syncThemeLabel = () => {
+    const dark = root.getAttribute("data-theme") === "dark";
+    themeBtn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
   };
-  const current = () => root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-  setTheme(stored || current());
-  themeBtn.addEventListener("click", () => setTheme(current() === "dark" ? "light" : "dark"));
+  themeBtn.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+    syncThemeLabel();
+  });
+  syncThemeLabel();
 
-  const drawer = document.getElementById("drawer");
-  const openMenu = () => { drawer.hidden = false; };
-  const closeMenu = () => { drawer.hidden = true; };
-  document.getElementById("menuToggle").addEventListener("click", openMenu);
-  document.getElementById("drawerClose").addEventListener("click", closeMenu);
-  drawer.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
-
-  const phrases = [
-    "Forward Deployed Engineer aspirant · Cloud & Platform · DevSecOps · AI Infrastructure",
-    "I sit between users, software, and infrastructure."
-  ];
-  const typed = document.getElementById("typedSub");
-  let pi = 0, ci = 0, del = false;
-  const tick = () => {
-    const p = phrases[pi];
-    typed.textContent = p.slice(0, ci);
-    if (!del && ci < p.length) ci++;
-    else if (!del && ci === p.length) { del = true; setTimeout(tick, 1600); return; }
-    else if (del && ci > 0) ci--;
-    else { del = false; pi = (pi + 1) % phrases.length; }
-    setTimeout(tick, del ? 18 : 28);
-  };
-  tick();
-
-  const links = [...document.querySelectorAll("[data-nav]")];
-  const sections = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
-  const spy = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      const id = `#${e.target.id}`;
-      links.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === id));
-    });
-  }, { rootMargin: "-40% 0px -50% 0px" });
-  sections.forEach((s) => spy.observe(s));
-
-  const progress = document.getElementById("scrollProgress");
-  const onScroll = () => {
-    const max = document.documentElement.scrollHeight - innerHeight;
-    progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
-  };
+  const header = document.getElementById("siteHeader");
+  const onScroll = () => header.classList.toggle("scrolled", scrollY > 8);
   addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  document.querySelectorAll(".exp-tab").forEach((tab) => {
-    tab.addEventListener("click", () => {
-      document.querySelectorAll(".exp-tab").forEach((t) => t.classList.remove("active"));
-      document.querySelectorAll(".exp-panel").forEach((p) => p.classList.remove("active"));
-      tab.classList.add("active");
-      document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add("active");
-    });
-  });
-
-  const track = document.getElementById("carTrack");
-  const slides = [...track.querySelectorAll(".slide")];
-  const caption = document.getElementById("certCaption");
-  const dotsWrap = document.getElementById("certDots");
-  const slider = document.getElementById("certSlider");
-  let si = 0;
-  slides.forEach((s, n) => {
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = "cert-dot";
-    b.setAttribute("aria-label", `Show ${s.dataset.label}`);
-    b.addEventListener("click", () => show(n));
-    dotsWrap.append(b);
-  });
-  const dots = [...dotsWrap.children];
-  const show = (i) => {
-    si = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${si * 100}%)`;
-    dots.forEach((d, n) => d.classList.toggle("on", n === si));
-    caption.textContent = `${si + 1} / ${slides.length} · ${slides[si].dataset.label}`;
+  const menuBtn = document.getElementById("menuToggle");
+  const navList = document.getElementById("navList");
+  const setMenu = (open) => {
+    navList.classList.toggle("open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   };
-  show(0);
-  document.getElementById("prevCert").addEventListener("click", () => show(si - 1));
-  document.getElementById("nextCert").addEventListener("click", () => show(si + 1));
-  let startX = 0;
-  slider.addEventListener("touchstart", (e) => { startX = e.changedTouches[0].clientX; }, { passive: true });
-  slider.addEventListener("touchend", (e) => {
-    const dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) < 40) return;
-    show(dx > 0 ? si - 1 : si + 1);
-  }, { passive: true });
-  let timer = setInterval(() => show(si + 1), 8000);
-  slider.addEventListener("mouseenter", () => clearInterval(timer));
-  slider.addEventListener("mouseleave", () => { timer = setInterval(() => show(si + 1), 8000); });
+  menuBtn.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true"));
+  navList.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") {
+      setMenu(false);
+      menuBtn.focus();
+    }
+  });
+  document.addEventListener("click", (e) => {
+    if (menuBtn.getAttribute("aria-expanded") === "true" && !header.contains(e.target)) setMenu(false);
+  });
+  matchMedia("(min-width: 861px)").addEventListener("change", (e) => { if (e.matches) setMenu(false); });
 
-  const bars = document.querySelectorAll(".bar");
-  const barObs = new IntersectionObserver((entries) => {
+  const links = [...document.querySelectorAll("[data-nav]")];
+  const byId = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
+  const setActive = (id) => {
+    links.forEach((a) => {
+      const on = a === byId.get(id);
+      a.classList.toggle("active", on);
+      if (on) a.setAttribute("aria-current", "true");
+      else a.removeAttribute("aria-current");
+    });
+  };
+  const spyTargets = [...document.querySelectorAll("main > section[id]")];
+  const navFor = (id) => (byId.has(id) ? id : id === "approach" ? "about" : null);
+  const spy = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (!e.isIntersecting) return;
-      const el = e.target;
-      el.style.setProperty("--w", `${el.dataset.pct}%`);
-      el.classList.add("on");
-      barObs.unobserve(el);
+      const id = navFor(e.target.id);
+      if (id) setActive(id);
     });
-  }, { threshold: 0.4 });
-  bars.forEach((b) => barObs.observe(b));
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  spyTargets.forEach((s) => spy.observe(s));
+  setActive("home");
 
-  document.getElementById("downloadPdf").addEventListener("click", () => print());
-
-  document.getElementById("contactForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const fd = new FormData(e.target);
-    const subject = encodeURIComponent(fd.get("subject"));
-    const body = encodeURIComponent(`From: ${fd.get("email")}\n\n${fd.get("message")}`);
-    location.href = `mailto:akhileshranjan.ks@gmail.com?subject=${subject}&body=${body}`;
-    const st = document.getElementById("formStatus");
-    st.hidden = false;
-    st.textContent = "Opening your email client…";
-  });
-
-  const cursor = document.getElementById("cursor");
-  addEventListener("mousemove", (e) => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-  });
-
-  const stage = document.getElementById("stage");
-  stage.addEventListener("mousemove", (e) => {
-    const r = stage.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    stage.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg)`;
-  });
-  stage.addEventListener("mouseleave", () => { stage.style.transform = ""; });
-
-  document.querySelectorAll(".magnetic").forEach((btn) => {
-    btn.addEventListener("mousemove", (e) => {
-      const r = btn.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top - r.height / 2;
-      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.18}px)`;
-    });
-    btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
-  });
-
-  document.querySelectorAll(".tilt").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width;
-      const y = (e.clientY - r.top) / r.height;
-      card.style.transform = `rotateX(${(0.5 - y) * 8}deg) rotateY(${(x - 0.5) * 8}deg) translateY(-4px)`;
-    });
-    card.addEventListener("mouseleave", () => { card.style.transform = ""; });
-  });
-
-  const net = document.getElementById("bgNet");
-  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (net && !reduceMotion) {
-    const ctx = net.getContext("2d");
-    const mobile = matchMedia("(max-width: 700px)").matches;
-    const nodes = [];
-    const count = mobile ? 18 : 34;
-    const maxD = mobile ? 90 : 128;
-    const resize = () => {
-      net.width = innerWidth;
-      net.height = innerHeight;
-    };
-    const seed = () => {
-      nodes.length = 0;
-      for (let i = 0; i < count; i++) {
-        nodes.push({
-          x: Math.random() * net.width,
-          y: Math.random() * net.height,
-          vx: (Math.random() - 0.5) * 0.16,
-          vy: (Math.random() - 0.5) * 0.16
-        });
-      }
-    };
-    resize();
-    seed();
-    addEventListener("resize", () => { resize(); seed(); }, { passive: true });
-    const rgbOf = () => {
-      const hex = getComputedStyle(root).getPropertyValue("--accent-2").trim();
-      if (!hex.startsWith("#") || hex.length < 7) return [62, 207, 178];
-      return [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)];
-    };
-    let raf = 0;
-    const frame = () => {
-      const [r, g, b] = rgbOf();
-      ctx.clearRect(0, 0, net.width, net.height);
-      for (const n of nodes) {
-        n.x += n.vx;
-        n.y += n.vy;
-        if (n.x < 0 || n.x > net.width) n.vx *= -1;
-        if (n.y < 0 || n.y > net.height) n.vy *= -1;
-        ctx.fillStyle = `rgba(${r},${g},${b},0.32)`;
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, 1.15, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const d = Math.hypot(dx, dy);
-          if (d > maxD) continue;
-          ctx.strokeStyle = `rgba(${r},${g},${b},${0.1 * (1 - d / maxD)})`;
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.stroke();
-        }
-      }
-      raf = requestAnimationFrame(frame);
-    };
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) cancelAnimationFrame(raf);
-      else frame();
-    });
-    frame();
+  const reveals = document.querySelectorAll(".reveal");
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    reveals.forEach((el) => el.classList.add("in"));
+  } else {
+    const ro = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        ro.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    reveals.forEach((el) => ro.observe(el));
   }
+
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+  const rules = {
+    email: (v) => (!v ? "Please enter your email." : /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) ? "" : "Please enter a valid email address."),
+    subject: (v) => (v.length < 3 ? "Please add a short subject." : ""),
+    message: (v) => (v.length < 10 ? "Please write at least a sentence." : "")
+  };
+  const check = (field) => {
+    const msg = rules[field.name](field.value.trim());
+    const err = document.getElementById(`${field.id}-err`);
+    field.setAttribute("aria-invalid", msg ? "true" : "false");
+    err.textContent = msg;
+    err.hidden = !msg;
+    return !msg;
+  };
+  form.querySelectorAll("input, textarea").forEach((f) => {
+    f.addEventListener("blur", () => { if (f.value) check(f); });
+    f.addEventListener("input", () => { if (f.getAttribute("aria-invalid") === "true") check(f); });
+  });
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fields = [...form.querySelectorAll("input, textarea")];
+    const results = fields.map((f) => check(f));
+    const firstBad = fields[results.indexOf(false)];
+    if (firstBad) {
+      status.className = "form-status err";
+      status.textContent = "Please fix the highlighted fields.";
+      firstBad.focus();
+      return;
+    }
+    const fd = new FormData(form);
+    const subject = encodeURIComponent(fd.get("subject").trim());
+    const body = encodeURIComponent(`From: ${fd.get("email").trim()}\n\n${fd.get("message").trim()}`);
+    location.href = `mailto:akhileshranjan.ks@gmail.com?subject=${subject}&body=${body}`;
+    status.className = "form-status ok";
+    status.textContent = "Opening your email app… If nothing happens, email akhileshranjan.ks@gmail.com directly.";
+  });
 })();

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iarsingh.github.io/sitemap.xml
