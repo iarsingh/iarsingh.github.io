@@ -469,6 +469,37 @@
 
     <div class="project-grid">
       <article class="project reveal">
+        <p class="project-kind">FDE · Simulated customer engagement</p>
+        <h3>Customer Self-Service Deployment Platform</h3>
+        <dl class="project-qa">
+          <div><dt>Problem</dt><dd>A fictional customer, Meridian Labs: developers waited 2–3 days and filed several tickets across DevOps, infrastructure, Kubernetes and security to ship one microservice.</dd></div>
+          <div><dt>Solution</dt><dd>A self-service API and form that render the repository, CI pipeline, Terraform, Helm values, Kyverno policies and an Argo CD Application for <code>dev</code> or <code>staging</code> in under two minutes.</dd></div>
+          <div><dt>Constraint</dt><dd>The customer's last incident was a laptop apply, so the API stops at files. Argo CD is the only writer to a cluster, and <code>prod</code> is a pull request, not an API call.</dd></div>
+        </dl>
+        <details class="more">
+          <summary>Key decisions &amp; outcome</summary>
+          <dl class="project-qa">
+            <div><dt>Key decisions</dt>
+              <dd>
+                <ul class="ticks">
+                  <li><code>prod</code> requests are stored and returned as HTTP 422; the same idempotency key returns the original decision.</li>
+                  <li>A local policy checker rejects images tagged <code>latest</code> and pods without limits before anything reaches Git.</li>
+                  <li>Terraform, Helm and policy checks run on a laptop with no cloud login; GKE is documented, not required.</li>
+                  <li>36 issues across five milestones, each naming the customer impact and the file that closed it.</li>
+                </ul>
+              </dd>
+            </div>
+            <div><dt>Outcome</dt><dd>A runnable engagement artifact with tests, a demo script and Prometheus/Grafana metrics. The customer is fictional; the engineering runs locally.</dd></div>
+          </dl>
+        </details>
+        <ul class="tags"><li>FastAPI</li><li>Terraform</li><li>Helm</li><li>Argo CD</li><li>Kyverno</li><li>Prometheus</li></ul>
+        <div class="link-row">
+          <a class="text-link" href="https://github.com/iarsingh/customer-deployment-platform" target="_blank" rel="noopener">GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="text-link" href="https://github.com/iarsingh/customer-deployment-platform/issues" target="_blank" rel="noopener">Issues <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </article>
+
+      <article class="project reveal">
         <p class="project-kind">Platform · IaC reference</p>
         <h3>Terraform GCP Landing Zone</h3>
         <dl class="project-qa">
@@ -550,10 +581,91 @@
         <svg class="ico" aria-hidden="true"><use href="#i-flask"/></svg>
         <div>
           <h3 id="lab-title">FDE / AI Engineering Lab</h3>
-          <p>Coursework and learning projects — labelled as such, not customer deployments.</p>
+          <p>Simulated customer engagements, learning ladders and coursework — labelled as such. The customers and data are fictional; the code, tests and constraints are real and run locally.</p>
         </div>
       </header>
       <div class="project-grid project-grid-compact">
+        <article class="project">
+          <p class="project-kind">Simulated engagement · Logistics</p>
+          <h4>Harborline Dispatch Copilot</h4>
+          <p>Shipment risk score with every point explained, the approved SOP and cited sources. Shipment data never leaves the environment and no external model is called; the audit log keeps the decision, not the ticket text.</p>
+          <ul class="tags"><li>Python</li><li>FastAPI</li><li>Eval gate</li><li>Docker</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/iarsingh/fde-harborline-engagement" target="_blank" rel="noopener">GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <p class="project-kind">Simulated engagement · Healthcare ops</p>
+          <h4>Northshore After-Hours Intake</h4>
+          <p>Routes overnight portal notes for the morning nurse and blocks any note without consent. It routes and cites; it does not diagnose, and note text is never sent to an outside model.</p>
+          <ul class="tags"><li>Python</li><li>Consent gate</li><li>Citations</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/iarsingh/fde-clinic-intake" target="_blank" rel="noopener">GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <p class="project-kind">Simulated engagement · Payments</p>
+          <h4>Brightpath Payment Reconciliation</h4>
+          <p>Idempotent matching of webhooks to the settlement file. Duplicate events are ignored, and any cent mismatch goes to an exception queue instead of being marked settled.</p>
+          <ul class="tags"><li>Python</li><li>Idempotency</li><li>Exception queue</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/iarsingh/fde-ledger-reconcile" target="_blank" rel="noopener">GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <p class="project-kind">Simulated engagement · Field service</p>
+          <h4>Helios Field Parts</h4>
+          <p>Offline spare-part lookup for a depot with no reliable uplink. It picks the bin that actually has stock, reports stockouts, and escalates unknown faults instead of guessing. It never creates a purchase order.</p>
+          <ul class="tags"><li>Python</li><li>Offline-first</li><li>Inventory rules</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/iarsingh/fde-field-parts" target="_blank" rel="noopener">GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <p class="project-kind">Simulated engagement · Utilities</p>
+          <h4>Cedar Grid Outage Desk</h4>
+          <p>Ranks storm outages so a feeder with a life-safety account goes ahead of a larger commercial outage, and suggests crew counts. It does not text customers or dispatch crews on its own.</p>
+          <ul class="tags"><li>Python</li><li>Prioritisation</li><li>Human in the loop</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/iarsingh/fde-outage-desk" target="_blank" rel="noopener">GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <p class="project-kind">Simulated engagement · Procurement</p>
+          <h4>Northline Vendor Review</h4>
+          <p>Checks vendor packets for expired insurance and bank-detail changes, and enforces that the person who entered a change cannot accept it. Software can mark a packet ready for a human, never approved.</p>
+          <ul class="tags"><li>Python</li><li>Four-eyes control</li><li>Audit</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/iarsingh/fde-vendor-review" target="_blank" rel="noopener">GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <p class="project-kind">Method · Templates</p>
+          <h4>FDE Engagement Playbook</h4>
+          <p>How I run an engagement: discovery brief, success metrics agreed before code, solution design, security and data rules, a shadow-week rollout and the customer readout. The engagements above are built from these templates.</p>
+          <ul class="tags"><li>Discovery</li><li>Success metrics</li><li>Rollout</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/iarsingh/fde-engagement-playbook" target="_blank" rel="noopener">GitHub <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <p class="project-kind">Learning ladder · Platform</p>
+          <h4>Platform Engineering Ladder</h4>
+          <p>Small tested FastAPI services that climb from host health, cost and log analysis through Terraform and Kubernetes rendering to multi-tenant auth and a self-service developer platform. Each renders or plans; none applies to production.</p>
+          <ul class="tags"><li>FastAPI</li><li>Terraform</li><li>Kubernetes</li><li>pytest</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/users/iarsingh/projects/4" target="_blank" rel="noopener">Project board <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
+        <article class="project">
+          <p class="project-kind">Learning ladder · Data &amp; AI</p>
+          <h4>Selected Skill Ladder</h4>
+          <p>A progression from Python fundamentals and data science through ML, NLP and RAG — PDF question answering, BM25 hybrid search and a RAG evaluation gate — implemented without hosted models so every score is reproducible.</p>
+          <ul class="tags"><li>Python</li><li>ML</li><li>RAG</li><li>Evaluation</li></ul>
+          <div class="link-row">
+            <a class="text-link" href="https://github.com/users/iarsingh/projects/5" target="_blank" rel="noopener">Project board <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </article>
         <article class="project">
           <p class="project-kind">Coursework · MLOps</p>
           <h4>MLOps Zoomcamp</h4>
