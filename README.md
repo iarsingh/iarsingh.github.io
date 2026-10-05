@@ -1,5 +1,31 @@
 # iarsingh.github.io
 
+<!-- project-guide:start -->
+## Project guide
+
+[Project architecture](PROJECT_ARCHITECTURE.md) · [Interview questions and answers](INTERVIEW_QA.md)
+
+Use the architecture document for the component diagram, implementation boundaries, and verification entry points. The interview guide includes source-backed answers and project walkthroughs.
+
+### Implementation map
+
+| Component | Responsibility |
+| --- | --- |
+| [`index.html`](index.html) | Implementation or supporting configuration |
+| [`script.js`](script.js) | Implementation or supporting configuration |
+| [`styles.css`](styles.css) | Implementation or supporting configuration |
+| [`README.md`](README.md) | Project explanations or operating notes |
+
+### Local setup and verification
+
+From the repository root (the commands follow the checked-in manifests):
+
+```bash
+python3 -m http.server 8000
+```
+
+<!-- project-guide:end -->
+
 Personal portfolio of Akhilesh Ranjan Singh — Cloud & Platform Engineer moving toward Forward Deployed and AI Platform Engineering.
 
 Live: https://iarsingh.github.io/
