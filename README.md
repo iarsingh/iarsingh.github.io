@@ -49,3 +49,11 @@ python3 -m http.server 8000
 ```
 
 Bump the `?v=` query on `styles.css` and `script.js` in `index.html` after changing them so Pages visitors don't get cached copies.
+
+## Documentation checks
+
+Project architecture, interview guides, and local source links are checked automatically on pushes and pull requests. Run the same check locally:
+
+```bash
+python3 .github/scripts/validate_project_docs.py
+```
