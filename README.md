@@ -1,5 +1,12 @@
 # iarsingh.github.io
 
+## Overview
+
+The personal portfolio site of Akhilesh Ranjan Singh, a cloud and platform engineer moving toward forward deployed and AI platform engineering. It is a static site with no build step, served by GitHub Pages from the repository root. One HTML page holds the content and social metadata, a stylesheet handles light and dark themes with responsive breakpoints, and a script adds the theme toggle, mobile menu, scroll-spy, reveal-on-scroll and contact form validation.
+
+- **Built with:** HTML, CSS, JavaScript, GitHub Pages
+- **Scope:** Personal static website with a downloadable resume; there is no backend.
+
 <!-- project-guide:start -->
 ## Project guide
 
